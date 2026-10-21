@@ -1,0 +1,51 @@
+{
+  "name": "dsh-llm-retry-any",
+  "version": "0.1.0",
+  "description": "Fork of @deepseek-ai/dsh-llm-retry: retry every model-request failure regardless of error code or gateway, with a floor of 3 retries.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "dev-link": "scripts/dev-link.sh",
+    "check": "scripts/check.sh"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "~3.18.5",
+    "zod": "4.4.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": { "optional": true }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "llm",
+    "retry",
+    "resilience",
+    "plugin"
+  ],
+  "license": "MIT"
+}

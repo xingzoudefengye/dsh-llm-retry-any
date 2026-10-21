@@ -1,0 +1,19 @@
+# dsh-llm-retry-any bundle patch.
+#
+# 一行：把「任何失败都重试、且至少 3 次」的重试执行器挂到 agent 的
+# `agent/request-error` 恢复点上。
+#
+# ⚠️ 它替换的是内置的 @deepseek-ai/dsh-llm-retry（两者注册同一个 session
+# projection key `llmRetry`，同时挂载会冲突）。profile 里要显式停用内置那行：
+#
+#   - id: llm-retry
+#     disabled: true
+#
+# minRetries 是重试次数下限：即使某个 provider 的 retryPolicy 把 maxRetries
+# 配成 0/1，也仍然至少重试这么多次。上限取 max(provider.maxRetries, minRetries)。
+
+- insert:
+    - id: llm-retry-any
+      name: 'dsh-llm-retry-any'
+      config:
+        minRetries: 3
