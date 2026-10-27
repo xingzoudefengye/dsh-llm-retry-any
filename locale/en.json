@@ -1,0 +1,5 @@
+{
+  "meta": {
+    "description": "Fork of @deepseek-ai/dsh-llm-retry: retry every model-request failure regardless of error code or gateway, with a floor of 3 retries."
+  }
+}
