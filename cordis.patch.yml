@@ -1,6 +1,13 @@
 # dsh-llm-retry-any bundle patch.
 #
-# 一行：把「任何失败都重试、且至少 3 次」的重试执行器挂到 agent 的
+# ⚠️ 已弃用（2026-11-18）：harness 0.2.2 起官方 @deepseek-ai/dsh-llm-retry 已
+# 覆盖本插件的全部实用功能 —— normal 模式的 retryableCodes 接受任意自定义错误码
+# （含网关的 INVALID_REQUEST / PI_AI_ERROR），always 模式则不按错误码过滤。
+# 不要再把这一行加进新 profile；迁移方式见 README。
+#
+# 保留此文件仅为参考：它记录了当时「白名单无法表达通配」的历史限制。
+#
+# 若仍要启用（不推荐）：把「任何失败都重试、且至少 3 次」的重试执行器挂到 agent 的
 # `agent/request-error` 恢复点上。
 #
 # ⚠️ 它替换的是内置的 @deepseek-ai/dsh-llm-retry（两者注册同一个 session

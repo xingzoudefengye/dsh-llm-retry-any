@@ -1,7 +1,8 @@
 {
   "name": "dsh-llm-retry-any",
-  "version": "0.1.0",
-  "description": "Fork of @deepseek-ai/dsh-llm-retry: retry every model-request failure regardless of error code or gateway, with a floor of 3 retries.",
+  "version": "0.2.0",
+  "deprecated": "harness 0.2.2 起官方已覆盖全部实用功能：normal 的 retryableCodes 接受任意自定义码，always 模式不按错误码过滤。请改用官方 @deepseek-ai/dsh-llm-retry，见 README。",
+  "description": "[已弃用] Fork of @deepseek-ai/dsh-llm-retry: retry every model-request failure regardless of error code, with a floor of 3 retries. Superseded by the upstream retryableCodes/always support since harness 0.2.2.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
